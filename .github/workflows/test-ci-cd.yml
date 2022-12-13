@@ -17,4 +17,4 @@ jobs:
       - name: Cria o PR
         uses: peter-evans/create-pull-request@v4
         with:
-          branch: homologacao
+          branch: main
