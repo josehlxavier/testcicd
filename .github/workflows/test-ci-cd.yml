@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: main
+          ref: homologacao
       - name: Reseta branch de homologacao
         run: |
           git fetch origin main:main
@@ -17,4 +17,4 @@ jobs:
       - name: Cria o PR
         uses: peter-evans/create-pull-request@v4
         with:
-          branch: homologacao
+          branch: main
