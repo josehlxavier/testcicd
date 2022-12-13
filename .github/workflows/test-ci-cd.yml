@@ -1,0 +1,20 @@
+name: Criar PR em homologação
+on:
+  push:
+    branches:
+      - main
+jobs:
+  syncMainHomo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: homologacao
+      - name: Reseta branch de homologacao
+        run: |
+          git fetch origin main:main
+          git reset --hard main
+      - name: Cria o PR
+        uses: peter-evans/create-pull-request@v4
+        with:
+          branch: homologacao
