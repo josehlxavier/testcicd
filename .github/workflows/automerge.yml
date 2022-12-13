@@ -1,6 +1,4 @@
-name: |
-      automerge all pull requests available 
-      between source and target repositories.
+name: Automerge PRs
 on:
   workflow_run:
     workflows:
