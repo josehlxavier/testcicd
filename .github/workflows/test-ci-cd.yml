@@ -2,7 +2,7 @@ name: Criar PR em homologação
 on:
   push:
     branches:
-      - main
+      - main #Repositório que irá receber o push e ativar o fluxo
 jobs:
   syncMainHomo:
     runs-on: ubuntu-latest
@@ -10,15 +10,15 @@ jobs:
       - name: checkout for PR
         uses: actions/checkout@v3
         with:
-          ref: homologacao
-      - name: Reseta branch de homologacao
+          ref: homologacao #Repositório que irá receber o PR
+      - name: Reseta branch de homologacao #necessário alterar os paths do fetch abaixo para funcionar no repo da sensedia
         run: |
-          git fetch origin main:main
+          git fetch origin main:main 
           git reset --hard main
       - name: Cria o PR
         uses: peter-evans/create-pull-request@v4
         with:
-          branch: main
+          branch: main #Aqui a gente define a partir de qual branch será feito PR
       - name: checkout for Merge
         uses: actions/checkout@v3
       - name: Merging
@@ -26,5 +26,5 @@ jobs:
         id: merge
         with:
           github_token: ${{ github.token }}
-          source: 'main'
-          target: 'homologacao'
+          source: 'main' #nome da branch onde estão as alterações"
+          target: 'homologacao' #nome da branch que irá receber as alterações"
