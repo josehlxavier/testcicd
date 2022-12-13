@@ -1,8 +1,12 @@
 name: automerge_v2
 on:
-  push:
+  workflow_run:
+    workflows:
+      - "Criar PR em homologação"
     branches:
       - main
+    types:
+      - completed
 
 jobs:
   update-cms-master:
