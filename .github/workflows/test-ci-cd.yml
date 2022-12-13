@@ -7,7 +7,8 @@ jobs:
   syncMainHomo:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: checkout for PR
+        uses: actions/checkout@v3
         with:
           ref: homologacao
       - name: Reseta branch de homologacao
@@ -18,9 +19,9 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           branch: main
-      - name: checkout
-        uses: actions/checkout@v2
-      - name: merge
+      - name: checkout for Merge
+        uses: actions/checkout@v3
+      - name: Merging
         uses: mtanzi/action-automerge@v1
         id: merge
         with:
