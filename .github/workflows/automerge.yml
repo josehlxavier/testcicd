@@ -1,4 +1,4 @@
-name: automerge_v2_${{ github.run_id }}
+name: automerge_v2_'${{ github.run_id }}'
 on:
   workflow_run:
     workflows:
