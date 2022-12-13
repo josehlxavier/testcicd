@@ -1,4 +1,4 @@
-name: automerge_v2
+name: Automerge PRs
 on:
   workflow_run:
     workflows:
