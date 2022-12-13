@@ -1,4 +1,6 @@
-name: automerge_v2_'${{ github.run_id }}'
+name: |
+      automerge all pull requests available 
+      between source and target repositories.
 on:
   workflow_run:
     workflows:
