@@ -19,6 +19,7 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           branch: main #Aqui a gente define a partir de qual branch será feito PR
+      # Não sei se é necessário este ultimo checkout mas como tava no script que eu usei de cola, resolvi deixar.
       - name: checkout for Merge
         uses: actions/checkout@v3
       - name: Merging
@@ -26,5 +27,6 @@ jobs:
         id: merge
         with:
           github_token: ${{ github.token }}
-          source: 'main' #nome da branch onde estão as alterações"
-          target: 'homologacao' #nome da branch que irá receber as alterações"
+          source: 'main' #nome da branch onde estão as alterações
+          target: 'homologacao' #nome da branch que irá receber as alterações
+          
